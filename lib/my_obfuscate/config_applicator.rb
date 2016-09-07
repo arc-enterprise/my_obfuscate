@@ -47,10 +47,6 @@ class MyObfuscate
                                           clean_quotes(FFaker::Name.first_name)
                                       when :last_name
                                           clean_quotes(FFaker::Name.last_name)
-                                      when :dob
-                                          dob = row[index].split('-')
-                                          dob[2] = '01'
-                                          clean_quotes(dob.join('-'))
                                       when :address
                                           clean_quotes("#{FFaker::AddressUS.street_address}\\n#{FFaker::AddressCA.city}, #{FFaker::AddressCA.province_abbr} #{FFaker::AddressCA.postal_code}")
                                       when :street_address
