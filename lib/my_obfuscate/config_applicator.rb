@@ -51,7 +51,6 @@ class MyObfuscate
                                           dob = row[index].split('-')
                                           dob[2] = '01'
                                           dob = dob.join('-')
-                                          File.open('obfuscate_log.txt', 'a') { |file| file.write("row: #{dob} \n") }
                                           dob
                                       when :address
                                           clean_quotes("#{FFaker::AddressUS.street_address}\\n#{FFaker::AddressCA.city}, #{FFaker::AddressCA.province_abbr} #{FFaker::AddressCA.postal_code}")
