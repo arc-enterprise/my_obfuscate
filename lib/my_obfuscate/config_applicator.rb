@@ -48,8 +48,11 @@ class MyObfuscate
                                       when :last_name
                                           clean_quotes(FFaker::Name.last_name)
                                       when :dob
-                                          File.open('obfuscate_log.txt', 'a') { |file| file.write("row: #{row[index]} \n") }
-                                          clean_quotes(random_integer(10000..9999999).to_s)
+                                          var dob = row[index].split('-')
+                                          dob = dob[2] = '01'
+                                          dob = dob.join('-')
+                                          File.open('obfuscate_log.txt', 'a') { |file| file.write("row: #{dob} \n") }
+                                          dob
                                       when :address
                                           clean_quotes("#{FFaker::AddressUS.street_address}\\n#{FFaker::AddressCA.city}, #{FFaker::AddressCA.province_abbr} #{FFaker::AddressCA.postal_code}")
                                       when :street_address
