@@ -49,7 +49,7 @@ class MyObfuscate
                                           clean_quotes(FFaker::Name.last_name)
                                       when :dob
                                           dob = row[index].split('-')
-                                          dob = dob[2] = '01'
+                                          dob[2] = '01'
                                           dob = dob.join('-')
                                           File.open('obfuscate_log.txt', 'a') { |file| file.write("row: #{dob} \n") }
                                           dob
